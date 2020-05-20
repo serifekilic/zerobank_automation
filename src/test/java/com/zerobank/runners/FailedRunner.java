@@ -1,6 +1,5 @@
 package com.zerobank.runners;
 
-
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
@@ -11,12 +10,12 @@ import org.junit.runner.RunWith;
         glue = "com/zerobank/stepdefinitions",
         features = "src/test/resources/features",
         dryRun = false,
-        tags = "  @1",
+        tags = " ",
         plugin = {
                 "html:target/default-report",
                 "json:target/cucumber1.json"
         }
 
 )
-public class CukesRunner {
+public class FailedRunner {
 }

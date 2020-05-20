@@ -12,10 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.io.IOException;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class BrowserUtilities {
     /**
@@ -119,7 +116,7 @@ public class BrowserUtilities {
      * to target window based on page title
      * @param title of the window to switch
      */
-    public static void scitchWindow(String title){
+    public static void switchWindow(String title){
         Set<String> windowHandles = com.zerobank.utilities.Driver.getDriver().getWindowHandles();
         for(String window : windowHandles){
             com.zerobank.utilities.Driver.getDriver().switchTo().window(window);
@@ -127,5 +124,38 @@ public class BrowserUtilities {
                 break;
             }
         }
+    }
+
+    public static boolean isFileDownloaded(String fileName) {
+        String path = "";
+        if(System.getProperty("os.name").toLowerCase().contains("mac")){
+            path= System.getProperty("user.home")+"/Downloads";
+        }else{
+            path= System.getProperty("user.home")+"\\Downloads";
+        }
+        File dir = new File(path);
+        File[] dir_contents = dir.listFiles();
+        for (int i = 0; i < Objects.requireNonNull(dir_contents).length; i++) {
+            if (dir_contents[i].getName().contains(fileName))
+                return true;
+        }
+        return false;
+    }
+
+    public static String verifyFileExtension(String type, String fileName) {
+        String path = "";
+        if(System.getProperty("os.name").toLowerCase().contains("mac")){
+            path= System.getProperty("user.home")+"/Downloads";
+        }else{
+            path= System.getProperty("user.home")+"\\Downloads";
+        }
+        File dir = new File(path);
+        File[] dir_contents = dir.listFiles();
+        for (int i = 0; i < Objects.requireNonNull(dir_contents).length; i++) {
+            if (dir_contents[i].getName().endsWith(type) && dir_contents[i].getName().contains(fileName)) {
+                return type;
+            }
+        }
+        throw new RuntimeException("Wrong extension type!");
     }
 }
