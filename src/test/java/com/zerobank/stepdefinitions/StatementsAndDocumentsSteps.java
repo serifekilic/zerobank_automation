@@ -47,4 +47,7 @@ public class StatementsAndDocumentsSteps {
     public void type_should_be_for_the_file(String type, String fileName) {
         assertEquals(type, BrowserUtilities.verifyFileExtension(type, fileName));
     }
+
+
 }
+

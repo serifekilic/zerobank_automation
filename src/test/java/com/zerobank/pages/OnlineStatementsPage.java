@@ -72,4 +72,7 @@ public class OnlineStatementsPage extends AbstractPageBase {
         String file=findFile(fileName);
         return file.contains(format);
     }
+
+
+
 }
