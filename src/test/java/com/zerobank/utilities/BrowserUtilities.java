@@ -114,13 +114,14 @@ public class BrowserUtilities {
     /**
      * This method will switch webdriver from current window
      * to target window based on page title
+     *
      * @param title of the window to switch
      */
-    public static void switchWindow(String title){
+    public static void switchWindow(String title) {
         Set<String> windowHandles = com.zerobank.utilities.Driver.getDriver().getWindowHandles();
-        for(String window : windowHandles){
+        for (String window : windowHandles) {
             com.zerobank.utilities.Driver.getDriver().switchTo().window(window);
-            if(com.zerobank.utilities.Driver.getDriver().getTitle().equals(title)){
+            if (com.zerobank.utilities.Driver.getDriver().getTitle().equals(title)) {
                 break;
             }
         }
@@ -128,10 +129,10 @@ public class BrowserUtilities {
 
     public static boolean isFileDownloaded(String fileName) {
         String path = "";
-        if(System.getProperty("os.name").toLowerCase().contains("mac")){
-            path= System.getProperty("user.home")+"/Downloads";
-        }else{
-            path= System.getProperty("user.home")+"\\Downloads";
+        if (System.getProperty("os.name").toLowerCase().contains("mac")) {
+            path = System.getProperty("user.home") + "/Downloads";
+        } else {
+            path = System.getProperty("user.home") + "\\Downloads";
         }
         File dir = new File(path);
         File[] dir_contents = dir.listFiles();
@@ -144,10 +145,10 @@ public class BrowserUtilities {
 
     public static String verifyFileExtension(String type, String fileName) {
         String path = "";
-        if(System.getProperty("os.name").toLowerCase().contains("mac")){
-            path= System.getProperty("user.home")+"/Downloads";
-        }else{
-            path= System.getProperty("user.home")+"\\Downloads";
+        if (System.getProperty("os.name").toLowerCase().contains("mac")) {
+            path = System.getProperty("user.home") + "/Downloads";
+        } else {
+            path = System.getProperty("user.home") + "\\Downloads";
         }
         File dir = new File(path);
         File[] dir_contents = dir.listFiles();

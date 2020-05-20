@@ -68,10 +68,6 @@ public class OnlineStatementsPage extends AbstractPageBase {
         }
         return null;
     }
-    public boolean isDownloadedType(String format){
-        String file=findFile(fileName);
-        return file.contains(format);
-    }
 
 
 
